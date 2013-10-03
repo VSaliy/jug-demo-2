@@ -60,15 +60,26 @@ public class Main extends SpringBootServletInitializer {
 	/**
 	 * When running as a war, this class is picked up as the Servlet
 	 * Initialiser. You must override this abstract method to tell it what
-	 * Spring Java Configuration files to use. In this case, it is using itself,
+	 * Spring Boot Configuration file to use. In this case, it is using itself,
 	 * so it will pick up and use all the class annotations above to initialise
 	 * the application.
 	 * <p>
 	 * You <i>must</i> have a container that supports the Servlet 3 spec.
+	 * <p>
+	 * This used the be the abstract method on SpringBootServletInitializer but
+	 * it was changed to getConfigClass() in a later snapshot (after 02-Oct-13).
 	 */
 	@Override
 	protected Class<?>[] getConfigClasses() {
 		return new Class<?>[] { Main.class };
+	}
+
+	/**
+	 * In later versions of Spring Data (after 02-Oct-2013) getConfigClasses()
+	 * is replaced by getConfigClass().
+	 */
+	protected Class<?> getConfigClass() {
+		return Main.class;
 	}
 
 	/**
