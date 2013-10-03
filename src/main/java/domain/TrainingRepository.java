@@ -32,4 +32,15 @@ public interface TrainingRepository extends
 	 */
 	List<Course> findCourseByLocation(String location);
 
+	/**
+	 * Find courses in a given state. If none are found, an empty list is
+	 * returned.
+	 * 
+	 * @param location
+	 *            An Australian state or territory in upper-case, abbreviated
+	 *            form (VIC not Victoria).
+	 * @return A non-null but possibly empty list of courses.
+	 */
+	List<Course> findCourseByState(String state);
+
 }
