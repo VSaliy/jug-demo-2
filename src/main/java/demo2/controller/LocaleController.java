@@ -79,12 +79,12 @@ public class LocaleController {
 	@RequestMapping("/courses")
 	@ResponseBody
 	String courses() {
-		String content = "<html><body><h1>Courses</h1><p>Courses aailable this year are:</p>";
+		String content = "<html><body><h1>Courses</h1><p>Courses available this year are:</p><pre>";
 
 		for (Course course : trainingSchedule.getCourses(null))
 			content += "<li>" + course + "</li>";
 
-		content += "</body></html>";
+		content += "</pre></body></html>";
 		return content;
 	}
 
